@@ -9,17 +9,25 @@ import org.springframework.stereotype.Repository;
 
 import com.banking.auth.entities.AccountDetails;
 
-@Repository 
-public interface AccountDetailsRepository extends JpaRepository<AccountDetails,  Long> {
+@Repository
+public interface AccountDetailsRepository extends JpaRepository<AccountDetails, Long>{
 
 	
 	@Query("SELECT a FROM AccountDetails a WHERE a.accountNumber = ?1")
 	AccountDetails fetchAccountDetails(String accountNumber);
-	
+
 	
 	@Modifying
-	@Transactional 
-	@Query("UPDATE AccountDetails a SET a.accountBalance =?1 WHERE a.accountNumber=?2")
-	int updateAccountBalance(long accountBalance, String accounNumber);
+	@Transactional
+	@Query("UPDATE AccountDetails a SET a.accountBalance=?1,a.updatedAt=?2 WHERE a.accountNumber=?3")
+	int updateAccountBalance(long accountBalance,String date,String accountNumber);
+
+
+	@Modifying
+	@Transactional
+	@Query("UPDATE Customers c SET c.password=?1 WHERE c.email=?2")
+	int resetPassword(String pasword, String email);
+	
+	
+
 }
- 

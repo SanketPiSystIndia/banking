@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity 
+@Entity
 public class CustomerTransactions {
 	
 	@Id
@@ -14,26 +14,32 @@ public class CustomerTransactions {
 	private String accountNumber;
 	private String userAccountNumber;
 	private long amount;
-	private String tranctionPin;
-	private String upadateAt;
-	private String createAt;
-	private String Status;
+	private String transactionStatus;
+	private String createdAt;
+	private String updatedAt;
+	
+	
 	public CustomerTransactions() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 	public CustomerTransactions(long id, String accountNumber, String userAccountNumber, long amount,
-			String tranctionPin, String upadateAt, String createAt, String status) {
+			String transactionStatus, String createdAt, String updatedAt) {
 		super();
 		this.id = id;
 		this.accountNumber = accountNumber;
 		this.userAccountNumber = userAccountNumber;
 		this.amount = amount;
-		this.tranctionPin = tranctionPin;
-		this.upadateAt = upadateAt;
-		this.createAt = createAt;
-		Status = status;
+		this.transactionStatus = transactionStatus;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
+
+
+
 	public long getId() {
 		return id;
 	}
@@ -58,35 +64,36 @@ public class CustomerTransactions {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	public String getTranctionPin() {
-		return tranctionPin;
+	
+	public String getTransactionStatus() {
+		return transactionStatus;
 	}
-	public void setTranctionPin(String tranctionPin) {
-		this.tranctionPin = tranctionPin;
+
+
+	public void setTransactionStatus(String transactionStatus) {
+		this.transactionStatus = transactionStatus;
 	}
-	public String getUpadateAt() {
-		return upadateAt;
+
+	public String getCreatedAt() {
+		return createdAt;
 	}
-	public void setUpadateAt(String upadateAt) {
-		this.upadateAt = upadateAt;
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
 	}
-	public String getCreateAt() {
-		return createAt;
+	public String getUpdatedAt() {
+		return updatedAt;
 	}
-	public void setCreateAt(String createAt) {
-		this.createAt = createAt;
-	}
-	public String getStatus() {
-		return Status;
-	}
-	public void setStatus(String status) {
-		Status = status;
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 	@Override
 	public String toString() {
 		return "CustomerTransactions [id=" + id + ", accountNumber=" + accountNumber + ", userAccountNumber="
-				+ userAccountNumber + ", amount=" + amount + ", tranctionPin=" + tranctionPin + ", upadateAt="
-				+ upadateAt + ", createAt=" + createAt + ", Status=" + Status + "]";
+				+ userAccountNumber + ", amount=" + amount + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt
+				+ "]";
 	}
-}
+	
+	
+	
 
+}

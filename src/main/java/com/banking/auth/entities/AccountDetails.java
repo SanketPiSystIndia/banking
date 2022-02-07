@@ -8,16 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
-@Entity 
+@Entity
 public class AccountDetails {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name="CustomerId")
+	@JoinColumn(name = "customerId")
 	private Customers customerId;
 	
 	private String accountNumber;
@@ -26,13 +25,18 @@ public class AccountDetails {
 	private long accountBalance;
 	private String status;
 	private String createdAt;
-	private String upadteAt;
+	private String updatedAt;
+	
+	
+	
 	public AccountDetails() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 	public AccountDetails(long id, Customers customerId, String accountNumber, String branchName, String ifsc,
-			long accountBalance, String status, String createdAt, String upadteAt) {
+			long accountBalance, String status, String createdAt, String updatedAt) {
 		super();
 		this.id = id;
 		this.customerId = customerId;
@@ -42,8 +46,10 @@ public class AccountDetails {
 		this.accountBalance = accountBalance;
 		this.status = status;
 		this.createdAt = createdAt;
-		this.upadteAt = upadteAt;
+		this.updatedAt = updatedAt;
 	}
+	
+	
 	public long getId() {
 		return id;
 	}
@@ -92,18 +98,21 @@ public class AccountDetails {
 	public void setCreatedAt(String createdAt) {
 		this.createdAt = createdAt;
 	}
-	public String getUpadteAt() {
-		return upadteAt;
+	public String getUpdatedAt() {
+		return updatedAt;
 	}
-	public void setUpadteAt(String upadteAt) {
-		this.upadteAt = upadteAt;
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
 	}
+	
 	@Override
 	public String toString() {
 		return "AccountDetails [id=" + id + ", customerId=" + customerId + ", accountNumber=" + accountNumber
 				+ ", branchName=" + branchName + ", ifsc=" + ifsc + ", accountBalance=" + accountBalance + ", status="
-				+ status + ", createdAt=" + createdAt + ", upadteAt=" + upadteAt + "]";
+				+ status + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
+	
+
 	
 	
 }

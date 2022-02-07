@@ -1,62 +1,60 @@
 package com.banking.auth.util;
 
 import java.util.Properties;
+import org.springframework.stereotype.Service;
+
+
 
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import org.springframework.stereotype.Service;
+
 
 
 @Service
 public class MailService {
 	
-	static final String FROM="12345600iiii@gmail.com";
-	static final String FROMNAME="ishwari";
-	static final String SMTP_USERNAME="12345600iiii@gmail.com";
-	static final String SMTP_PASSWORD="@iiii00654321";
-	static final String HOST="smtp.gmail.com";
-	static final String PORT="587";
+	static final String FROM="sanketwin9@gmail.com";
+	static final String FROMNAME="Sanket Rasal";
+	static final String SMTP_USERNAME="sanketwin9@gmail.com";
+	static final String SMTP_PASSWORD="00071342247";
+	static final String HOST ="smtp.gmail.com";
+	static final String PORT ="587";
 	static final String SUBJECT="Banking OTP";
 	
 	
 	
-	public boolean senMail(String emailId,int otpValue) {
-	try {
-		Properties props =System.getProperties();
+	
+	public boolean sendMail(String email, long transactionPin) {
+		// TODO Auto-generated method stub
+		try {
+		Properties props=System.getProperties();
 		props.put("mail.transport.protocol","smtp");
-		props.put("mail.smtp.host",HOST);
-		props.put("mail.smtp.port",PORT);
-		props.put("mail.transport.protocol","smtp");
-		props.put("mail.smtp.auth","true");
+		props.put("mail.smtp.host", HOST);
+		props.put("mail.smtp.port", PORT);
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.auth", "true");
 		
-		Session session =Session.getDefaultInstance(props);
-		
-		MimeMessage msg = new MimeMessage(session);
-		
+		Session session=Session.getDefaultInstance(props);
+		MimeMessage msg=new MimeMessage(session);
 		msg.setFrom(new InternetAddress(FROM,FROMNAME));
-		msg.setRecipient(Message.RecipientType.TO,new InternetAddress(emailId));
+		msg.setRecipient(Message.RecipientType.TO,new InternetAddress(email));
 		msg.setSubject(SUBJECT);
-		msg.setContent("Please enter otp to verify email:" +otpValue,"text/html");
-		
-		
-		Transport transport = session.getTransport();
+		msg.setContent("please enter otp to verify email: "+transactionPin,"text/html");
+		Transport transport=session.getTransport();
 		transport.connect(HOST,SMTP_USERNAME,SMTP_PASSWORD);
 		transport.sendMessage(msg,msg.getAllRecipients());
-		
-		
 		return true;
-	}catch(Exception ex) {
+		}catch(Exception ex) {
 		return false;
+	
 	}
-		
-	}	
-		
-	}
-	
-	
-	
+
+}
 
 
+
+}
+	

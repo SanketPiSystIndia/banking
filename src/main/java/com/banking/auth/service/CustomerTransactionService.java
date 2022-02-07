@@ -4,6 +4,6 @@ import com.banking.auth.entities.CustomerTransactions;
 
 public interface CustomerTransactionService {
 
-    CustomerTransactions saveTransaction(CustomerTransactions sendersTransaction);
+	CustomerTransactions saveTransactionLog(CustomerTransactions sendersTransactionLog);
 
 }

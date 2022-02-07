@@ -6,12 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import com.banking.auth.entities.Customers;
 
-@Repository 
+@Repository
 public interface CustomerRepository extends JpaRepository<Customers, Long>{
+
 	
-	@Query("SELECT c FROM Customers c  WHERE c.email= ?1" )
+	@Query("SELECT c FROM Customers c WHERE c.email = ?1")
 	Customers findCustomerByEmail(String email);
-
-
 
 }

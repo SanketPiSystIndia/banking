@@ -5,8 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.banking.auth.entities.CustomerTransactions;
 
-
 @Repository
-public interface CustomerTransactionRepository extends JpaRepository<CustomerTransactions,Long> {
+public interface CustomerTransactionRepository extends JpaRepository<CustomerTransactions, Long>{
 
 }

@@ -5,28 +5,26 @@ public class CustomRequestForMoneyTransfer {
 	private String accountNumber;
 	private String userAccountNumber;
 	private long amount;
-	private String upadateAt;
-	private String createAt;
-	private String status;
+	private String branchName;
+	private String ifsc;
+	private String transactionPin;
+	private String createdAt;
+	private String updatedAt;
 	public CustomRequestForMoneyTransfer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CustomRequestForMoneyTransfer(String accountNumber, String userAccountNumber, long amount, String upadateAt,
-			String createAt, String status) {
+	public CustomRequestForMoneyTransfer(String accountNumber, String userAccountNumber, long amount, String branchName,
+			String ifsc, String transactionPin, String createdAt, String updatedAt) {
 		super();
 		this.accountNumber = accountNumber;
 		this.userAccountNumber = userAccountNumber;
 		this.amount = amount;
-		this.upadateAt = upadateAt;
-		this.createAt = createAt;
-		this.status = status;
-	}
-	@Override
-	public String toString() {
-		return "CustomRequestForMoneyTransfer [accountNumber=" + accountNumber + ", userAccountNumber="
-				+ userAccountNumber + ", amount=" + amount + ", upadateAt=" + upadateAt + ", createAt=" + createAt
-				+ ", status=" + status + "]";
+		this.branchName = branchName;
+		this.ifsc = ifsc;
+		this.transactionPin = transactionPin;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 	}
 	public String getAccountNumber() {
 		return accountNumber;
@@ -46,25 +44,47 @@ public class CustomRequestForMoneyTransfer {
 	public void setAmount(long amount) {
 		this.amount = amount;
 	}
-	public String getUpadateAt() {
-		return upadateAt;
+	public String getBranchName() {
+		return branchName;
 	}
-	public void setUpadateAt(String upadateAt) {
-		this.upadateAt = upadateAt;
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
 	}
-	public String getCreateAt() {
-		return createAt;
+	public String getIfsc() {
+		return ifsc;
 	}
-	public void setCreateAt(String createAt) {
-		this.createAt = createAt;
+	public void setIfsc(String ifsc) {
+		this.ifsc = ifsc;
 	}
-	public String getStatus() {
-		return status;
+	public String getTransactionPin() {
+		return transactionPin;
 	}
-	public void setStatus(String status) {
-		this.status = status;
+	public void setTransactionPin(String transactionPin) {
+		this.transactionPin = transactionPin;
+	}
+	public String getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(String createdAt) {
+		this.createdAt = createdAt;
+	}
+	public String getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(String updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	@Override
+	public String toString() {
+		return "CustomRequestForMoneyTransfer [accountNumber=" + accountNumber + ", userAccountNumber="
+				+ userAccountNumber + ", amount=" + amount + ", branchName=" + branchName + ", ifsc=" + ifsc
+				+ ", transactionPin=" + transactionPin + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "]";
 	}
 	
-	}
+	
+	
+	
+	
+	
 
-    
+}
